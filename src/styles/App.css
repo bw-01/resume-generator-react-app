@@ -46,3 +46,26 @@ main {
   padding: 0 1rem;
   font-family: system-ui, Arial, sans-serif;
 }
+
+.cv-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .cv-layout { grid-template-columns: 1fr; } 
+}
+
+.preview {
+  margin: 1rem 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  position: sticky; 
+  background: #f3a3d8;
+}
+
+.preview .heading { font-size: 1.25rem; font-weight: 700; }
+.preview .muted { color: #666; font-size: 0.95rem; }

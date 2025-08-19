@@ -1,6 +1,7 @@
 import GeneralInfo from "./components/GeneralInfo";
 import Education from "./components/Education";
 import Experience from "./components/Experience";
+import Preview from "./components/Preview";
 import "./styles/generalInfo.css";
 import "./styles/education.css";
 import "./styles/experience.css";
@@ -38,29 +39,33 @@ export default function App() {
   const toggleEdit = (setter, value) => setter((prev) => ({ ...prev, isEditing: value }));
 
   return (
-    <main>
+    <main className="cv-app">
       <h1>CV Builder</h1>
 
-      <GeneralInfo
-        data={general}
-        onChange={updateSection(setGeneral)}
-        onSubmit={() => toggleEdit(setGeneral, false)}
-        onEdit={() => toggleEdit(setGeneral, true)}
-      />
+      <div className="cv-layout">
+        <div>
+          <GeneralInfo
+            data={general}
+            onChange={updateSection(setGeneral)}
+            onSubmit={() => toggleEdit(setGeneral, false)}
+            onEdit={() => toggleEdit(setGeneral, true)}
+          />
+          <Education
+            data={education}
+            onChange={updateSection(setEducation)}
+            onSubmit={() => toggleEdit(setEducation, false)}
+            onEdit={() => toggleEdit(setEducation, true)}
+          />
+          <Experience
+            data={experience}
+            onChange={updateSection(setExperience)}
+            onSubmit={() => toggleEdit(setExperience, false)}
+            onEdit={() => toggleEdit(setExperience, true)}
+          />
+        </div>
 
-      <Education
-        data={education}
-        onChange={updateSection(setEducation)}
-        onSubmit={() => toggleEdit(setEducation, false)}
-        onEdit={() => toggleEdit(setEducation, true)}
-      />
-
-      <Experience
-        data={experience}
-        onChange={updateSection(setExperience)}
-        onSubmit={() => toggleEdit(setExperience, false)}
-        onEdit={() => toggleEdit(setExperience, true)}
-      />
+        <Preview general={general} education={education} experience={experience} />
+      </div>
     </main>
   );
 }
