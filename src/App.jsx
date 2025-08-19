@@ -2,9 +2,6 @@ import GeneralInfo from "./components/GeneralInfo";
 import Education from "./components/Education";
 import Experience from "./components/Experience";
 import Preview from "./components/Preview";
-import "./styles/generalInfo.css";
-import "./styles/education.css";
-import "./styles/experience.css";
 import "./styles/App.css";
 import { useState } from "react";
 
